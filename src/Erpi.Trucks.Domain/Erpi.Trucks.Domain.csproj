@@ -6,4 +6,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Erpi.BuildingBlocks.Domain\Erpi.BuildingBlocks.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Exceptions\" />
+    </ItemGroup>
+
 </Project>
