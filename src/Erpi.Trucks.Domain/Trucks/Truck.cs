@@ -1,4 +1,6 @@
 using Erpi.BuildingBlocks.Domain;
+using Erpi.Trucks.Domain.Exceptions;
+using Erpi.Trucks.Domain.Trucks.Services;
 
 namespace Erpi.Trucks.Domain.Trucks;
 
@@ -10,22 +12,29 @@ public class Truck : IAggregateRoot
 
     public string Name { get; private set; }
 
-    public TruckStatus TruckStatus { get; private set; }
+    public TruckStatus Status { get; private set; }
+
+    public string? Description { get; private set; }
 
     private Truck(
+        Guid id,
         AlphanumericCode code,
         string name,
-        TruckStatus truckStatus)
+        TruckStatus status,
+        string? description)
     {
-        TruckStatus = truckStatus;
+        Id = id;
+        Status = status;
         Code = code;
         Name = name;
+        Description = description;
     }
 
     public static Truck Create(
         string code,
         string name,
-        string truckStatusCode)
+        string truckStatusCode,
+        string? description = null)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -36,14 +45,21 @@ public class Truck : IAggregateRoot
         }
 
         return new Truck(
+            Guid.NewGuid(),
             AlphanumericCode.Of(code),
             name,
-            TruckStatus.Of(truckStatusCode));
+            TruckStatus.Of(truckStatusCode),
+            description);
     }
 
-    public void SetStatus(string trackStatusCode)
+    public void SetStatus(string truckStatusCode)
     {
-        TruckStatus.TransitionTo(trackStatusCode);
-    }
+        var newTruckStatus = TruckStatus.Of(truckStatusCode);
+        if (!TruckStatusTransitionValidator.Validate(Status, newTruckStatus))
+        {
+            throw new TransitionTruckStatusException();
+        }
 
+        Status = newTruckStatus;
+    }
 }
