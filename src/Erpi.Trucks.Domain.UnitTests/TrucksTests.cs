@@ -19,4 +19,17 @@ public class TrucksTests
         func.Should().NotThrow<DomainException>();
         func().Code.ToString().Should().Be(name);
     }
+    
+    [Fact]
+    public void GivenNonAlphanumericCode_WhenCreateTruck_ThenShouldThrowDomainException()
+    {
+        // Given
+        var name = "SDAFd8fdfS+";
+
+        // When
+        var func = () => Truck.Create(name);
+
+        // Then
+        func.Should().Throw<DomainException>();
+    }
 }
