@@ -19,4 +19,9 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Erpi.BuildingBlocks.Application\Erpi.BuildingBlocks.Application.csproj" />
+      <ProjectReference Include="..\Erpi.BuildingBlocks.Domain\Erpi.BuildingBlocks.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
