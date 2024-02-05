@@ -10,17 +10,22 @@ public class Truck : IAggregateRoot
 
     public string Name { get; private set; }
 
+    public TruckStatus TruckStatus { get; private set; }
+
     private Truck(
         AlphanumericCode code,
-        string name)
+        string name,
+        TruckStatus truckStatus)
     {
+        TruckStatus = truckStatus;
         Code = code;
         Name = name;
     }
 
     public static Truck Create(
         string code,
-        string name)
+        string name,
+        string truckStatus)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -29,9 +34,10 @@ public class Truck : IAggregateRoot
             // some guard "interface" for such validation
             throw new DomainException("Name should be not empty");
         }
-        
+
         return new Truck(
             AlphanumericCode.Of(code),
-            name);
+            name,
+            TruckStatus.Of(truckStatus));
     }
 }
