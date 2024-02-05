@@ -8,16 +8,30 @@ public class Truck : IAggregateRoot
 
     public AlphanumericCode Code { get; private set; }
 
+    public string Name { get; private set; }
+
     private Truck(
-        AlphanumericCode code)
+        AlphanumericCode code,
+        string name)
     {
         Code = code;
+        Name = name;
     }
 
     public static Truck Create(
-        string code)
+        string code,
+        string name)
     {
+        if (string.IsNullOrEmpty(name))
+        {
+            // TODO: Improvements like:
+            // Custom exception, like EmptyNameDomainException : Exception
+            // some guard "interface" for such validation
+            throw new DomainException("Name should be not empty");
+        }
+        
         return new Truck(
-            AlphanumericCode.Of(code));
+            AlphanumericCode.Of(code),
+            name);
     }
 }
