@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{BDB897BD-D45F-4BD5-B711-CAFDF83B7F89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{00A32338-74E6-403E-81A5-912053A3CFE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{296B6B2D-4DAC-475F-94E3-E954790B175E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erpi.Api", "Erpi.Api\Erpi.Api.csproj", "{2E05FCB0-FBCC-4596-8456-631908D9524E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{00A32338-74E6-403E-81A5-912053A3CFE3} = {BDB897BD-D45F-4BD5-B711-CAFDF83B7F89}
+		{296B6B2D-4DAC-475F-94E3-E954790B175E} = {BDB897BD-D45F-4BD5-B711-CAFDF83B7F89}
+		{2E05FCB0-FBCC-4596-8456-631908D9524E} = {00A32338-74E6-403E-81A5-912053A3CFE3}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E05FCB0-FBCC-4596-8456-631908D9524E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E05FCB0-FBCC-4596-8456-631908D9524E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E05FCB0-FBCC-4596-8456-631908D9524E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E05FCB0-FBCC-4596-8456-631908D9524E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
