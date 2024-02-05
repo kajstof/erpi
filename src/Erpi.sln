@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erpi.BuildingBlocks.Domain"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erpi.BuildingBlocks.Infrastructure", "Erpi.BuildingBlocks.Infrastructure\Erpi.BuildingBlocks.Infrastructure.csproj", "{C2C2C5AC-206A-4F1B-AFC7-77470CAF7369}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BB3C5A85-BBD0-4A71-B2CA-4BBC343233F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erpi.Trucks.Domain.UnitTests", "Erpi.Trucks.Domain.UnitTests\Erpi.Trucks.Domain.UnitTests.csproj", "{B1684FDB-D2FC-46C8-AE5E-C0EB44B13BEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,8 @@ Global
 		{B8F63DED-7F16-4949-9AE6-F9B575D5AAE8} = {C71BFE1A-6CD3-478A-B6AF-3BFF636788C9}
 		{9660ACE3-6E3A-4C81-B959-83978D19835B} = {C71BFE1A-6CD3-478A-B6AF-3BFF636788C9}
 		{C2C2C5AC-206A-4F1B-AFC7-77470CAF7369} = {C71BFE1A-6CD3-478A-B6AF-3BFF636788C9}
+		{BB3C5A85-BBD0-4A71-B2CA-4BBC343233F7} = {A5272D2D-CED1-4F9E-9E32-E50146F23C8C}
+		{B1684FDB-D2FC-46C8-AE5E-C0EB44B13BEA} = {BB3C5A85-BBD0-4A71-B2CA-4BBC343233F7}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2E05FCB0-FBCC-4596-8456-631908D9524E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -71,5 +77,9 @@ Global
 		{C2C2C5AC-206A-4F1B-AFC7-77470CAF7369}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2C2C5AC-206A-4F1B-AFC7-77470CAF7369}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2C2C5AC-206A-4F1B-AFC7-77470CAF7369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1684FDB-D2FC-46C8-AE5E-C0EB44B13BEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1684FDB-D2FC-46C8-AE5E-C0EB44B13BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1684FDB-D2FC-46C8-AE5E-C0EB44B13BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1684FDB-D2FC-46C8-AE5E-C0EB44B13BEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
