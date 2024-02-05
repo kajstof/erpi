@@ -1,8 +1,10 @@
 using Erpi.BuildingBlocks.Domain;
+using Erpi.Trucks.Domain.Exceptions;
+using Erpi.Trucks.Domain.Trucks.Services;
 
 namespace Erpi.Trucks.Domain.Trucks;
 
-public record TruckStatus : ValueObject
+public record TruckStatus : ValueObject<TruckStatus>
 {
     public static TruckStatus OutOfService => new(nameof(OutOfService), "Out of service");
 
@@ -26,14 +28,22 @@ public record TruckStatus : ValueObject
 
     public static TruckStatus Of(string truckStatusCode)
     {
-        var availableTruckStatuses = GetAllTypes<TruckStatus>();
+        var availableTruckStatuses = GetAllTypes();
         var foundTruckStatus = availableTruckStatuses.SingleOrDefault(x => x.Code == truckStatusCode);
-        
+
         if (foundTruckStatus is null)
         {
             throw new DomainException("Invalid Track Status Code");
         }
 
         return foundTruckStatus;
+    }
+
+    public void TransitionTo(string truckStatusCode)
+    {
+        if (TruckStatusTransitionValidator.Validate(this, Of(truckStatusCode)))
+        {
+            throw new TransitionTruckStatusException();
+        }
     }
 }

@@ -3,7 +3,7 @@ using Erpi.BuildingBlocks.Domain.Extensions;
 
 namespace Erpi.Trucks.Domain.Trucks;
 
-public record AlphanumericCode : ValueObject
+public record AlphanumericCode : ValueObject<AlphanumericCode>
 {
     public string Code { get; private set; }
 

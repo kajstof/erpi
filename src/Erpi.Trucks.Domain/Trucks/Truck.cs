@@ -25,7 +25,7 @@ public class Truck : IAggregateRoot
     public static Truck Create(
         string code,
         string name,
-        string truckStatus)
+        string truckStatusCode)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -38,6 +38,12 @@ public class Truck : IAggregateRoot
         return new Truck(
             AlphanumericCode.Of(code),
             name,
-            TruckStatus.Of(truckStatus));
+            TruckStatus.Of(truckStatusCode));
     }
+
+    public void SetStatus(string trackStatusCode)
+    {
+        TruckStatus.TransitionTo(trackStatusCode);
+    }
+
 }

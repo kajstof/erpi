@@ -2,9 +2,9 @@ using Erpi.BuildingBlocks.Domain;
 using Erpi.Trucks.Domain.Trucks;
 using FluentAssertions;
 
-namespace Erpi.Trucks.Domain.UnitTests;
+namespace Erpi.Trucks.Domain.UnitTests.Trucks;
 
-public class TrucksTests
+public class TruckTests
 {
     [Fact]
     public void GivenValidData_WhenCreateTruck_ThenTruckShouldBeCreated()

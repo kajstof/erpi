@@ -2,9 +2,9 @@ using System.Reflection;
 
 namespace Erpi.BuildingBlocks.Domain;
 
-public abstract record ValueObject
+public abstract record ValueObject<T>
 {
-    protected static IEnumerable<T> GetAllTypes<T>()
+    public static IEnumerable<T> GetAllTypes()
     {
         return typeof(T)
             .GetProperties(BindingFlags.Public | BindingFlags.Static)
