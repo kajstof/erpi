@@ -163,6 +163,6 @@ public class TruckTests
         // Then
         func.Should()
             .ThrowAsync<DomainException>()
-            .Result.WithMessage("Customer with this email already exists.");
+            .Result.WithMessage("Truck with this code already exists");
     }
 }

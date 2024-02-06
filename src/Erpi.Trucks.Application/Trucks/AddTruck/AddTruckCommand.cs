@@ -18,6 +18,9 @@ public class AddTruckCommandHandler(ITruckDbContext truckDbContext)
             request.Description,
             new TruckUniquenessCodeChecker(truckDbContext, ct));
 
+        await truckDbContext.Trucks.AddAsync(truck, ct);
+        await truckDbContext.SaveChangesAsync(ct);
+
         return truck.Code.Code;
     }
 }

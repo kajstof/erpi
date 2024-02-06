@@ -63,7 +63,7 @@ public class Truck : IAggregateRoot
         
         if (!isUnique)
         {
-            throw new DomainException("Customer with this email already exists.");
+            throw new DomainException("Truck with this code already exists");
         }
 
         return truck;
