@@ -1,5 +1,6 @@
 using Erpi.BuildingBlocks.Domain;
 using Erpi.Trucks.Domain.Exceptions;
+using Erpi.Trucks.Domain.Trucks.Interfaces;
 using Erpi.Trucks.Domain.Trucks.Services;
 
 namespace Erpi.Trucks.Domain.Trucks;
@@ -36,11 +37,12 @@ public class Truck : IAggregateRoot
         Description = description;
     }
 
-    public static Truck Create(
+    public static async Task<Truck> Create(
         string code,
         string name,
         string statusCode,
-        string? description = null)
+        string? description,
+        ITruckUniquenessChecker truckUniquenessChecker)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -49,13 +51,22 @@ public class Truck : IAggregateRoot
             // some guard "interface" for such validation
             throw new DomainException("Name should be not empty");
         }
-
-        return new Truck(
+        
+        var truck = new Truck(
             Guid.NewGuid(),
             AlphanumericCode.Of(code),
             name,
             TruckStatus.Of(statusCode),
             description);
+        
+        var isUnique = await truckUniquenessChecker.IsUnique(truck);
+        
+        if (!isUnique)
+        {
+            throw new DomainException("Customer with this email already exists.");
+        }
+
+        return truck;
     }
 
     public void SetStatus(string truckStatusCode)

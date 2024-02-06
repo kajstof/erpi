@@ -1,3 +1,4 @@
+using Erpi.Trucks.Application.Database;
 using Erpi.Trucks.Domain.Trucks;
 using MediatR;
 
@@ -5,12 +6,18 @@ namespace Erpi.Trucks.Application.Trucks.AddTruck;
 
 public record AddTruckCommand(string Code, string Name, string Status, string? Description = null) : IRequest<string>;
 
-public class AddTruckCommandHandler : IRequestHandler<AddTruckCommand, string>
+public class AddTruckCommandHandler(ITruckDbContext truckDbContext)
+    : IRequestHandler<AddTruckCommand, string>
 {
-    public Task<string> Handle(AddTruckCommand request, CancellationToken cancellationToken)
+    public async Task<string> Handle(AddTruckCommand request, CancellationToken ct)
     {
-        var truck = Truck.Create(request.Code, request.Name, request.Status, request.Description);
+        var truck = await Truck.Create(
+            request.Code,
+            request.Name,
+            request.Status,
+            request.Description,
+            new TruckUniquenessCodeChecker(truckDbContext, ct));
 
-        return Task.FromResult(truck.Code.ToString());
+        return truck.Code.Code;
     }
 }
