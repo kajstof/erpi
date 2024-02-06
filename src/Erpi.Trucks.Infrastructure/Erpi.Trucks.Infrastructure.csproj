@@ -6,4 +6,27 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="EFCore.NamingConventions" Version="8.0.3" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Erpi.BuildingBlocks.Application\Erpi.BuildingBlocks.Application.csproj" />
+      <ProjectReference Include="..\Erpi.BuildingBlocks.Infrastructure\Erpi.BuildingBlocks.Infrastructure.csproj" />
+      <ProjectReference Include="..\Erpi.Trucks.Application\Erpi.Trucks.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Migrations\20240206021508_InitialMigration.Designer.cs" />
+      <Compile Remove="Migrations\20240206021648_InitialMigration.Designer.cs" />
+      <Compile Remove="Migrations\20240206022413_InitialMigration.Designer.cs" />
+    </ItemGroup>
+
 </Project>

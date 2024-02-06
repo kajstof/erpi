@@ -1,5 +1,6 @@
 using Erpi.Api.Extensions;
 using Erpi.Api.Middlewares;
+using Erpi.Trucks.Application.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerWithAuthentication();
+builder.Services.AddTrucksModule(builder.Configuration);
 
 var app = builder.Build();
 

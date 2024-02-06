@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Erpi.BuildingBlocks.Application\Erpi.BuildingBlocks.Application.csproj" />
+    </ItemGroup>
+
 </Project>

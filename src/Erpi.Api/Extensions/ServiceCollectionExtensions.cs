@@ -1,3 +1,5 @@
+using Erpi.Trucks.Application.DependencyInjection;
+using Erpi.Trucks.Infrastructure.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 namespace Erpi.Api.Extensions;
@@ -38,6 +40,13 @@ public static class ServiceCollectionExtensions
             });
         });
 
+        return services;
+    }
+    
+    public static IServiceCollection AddTrucksModule(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddTrucksApplication();
+        services.AddTrucksInfrastructure(configuration);
         return services;
     }
 }
