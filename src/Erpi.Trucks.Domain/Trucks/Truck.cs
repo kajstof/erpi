@@ -33,7 +33,7 @@ public class Truck : IAggregateRoot
     public static Truck Create(
         string code,
         string name,
-        string truckStatusCode,
+        string statusCode,
         string? description = null)
     {
         if (string.IsNullOrEmpty(name))
@@ -48,7 +48,7 @@ public class Truck : IAggregateRoot
             Guid.NewGuid(),
             AlphanumericCode.Of(code),
             name,
-            TruckStatus.Of(truckStatusCode),
+            TruckStatus.Of(statusCode),
             description);
     }
 
